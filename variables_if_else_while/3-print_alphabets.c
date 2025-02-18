@@ -10,16 +10,13 @@
 
 int main(void)
 {
-char min, maj;
+	char low;
 
-// Affichage des lettres en alternance
-for (min = 'a', maj = 'A'; min <= 'z'; min++, maj++)
-{
-putchar(min);  // Affiche la lettre minuscule
-putchar(maj);  // Affiche la lettre majuscule
-}
+	for (low = 'a'; low <= 'z'; low++)
+		putchar(low);
+	for (low = 'A'; low <= 'Z'; low++)
+		putchar(low);
+	putchar('\n');
 
-putchar('\n');  // Retour à la ligne à la fin
-
-return (0);
+	return (0);
 }
