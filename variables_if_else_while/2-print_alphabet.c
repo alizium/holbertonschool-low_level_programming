@@ -1,20 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * main - Affiche l'alphabet en minuscules
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-    char lettre;
+	char low;
 
-    for (lettre = 'a'; lettre <= 'z'; lettre++) // Boucle de 'a' à 'z'
-    {
-        putchar(lettre); // Affiche la lettre
-    }
-    putchar('\n'); // Retour à la ligne
+	for (low = 'a'; low <= 'z'; low++)
+		putchar(low);
+		putchar('\n');
 
-    return (0); // Indique que le programme s'est bien terminé
+	return (0);
 }
-
