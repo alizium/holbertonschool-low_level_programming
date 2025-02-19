@@ -1,12 +1,12 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * main - check the code for Holberton School students.
+ * main - Entry point
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	print_alphabet();
-	return (0);
+    print_alphabet();
+    return (0);
 }
