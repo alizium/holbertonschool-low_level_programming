@@ -1,12 +1,13 @@
 #include <unistd.h>
 
 /**
-* _putchar - écrit un caractère sur la sortie standard
-* @c: le caractère à écrire
+* _putchar - writes a character to stdout
+* @c: The character to print
 *
-* Return: le nombre de caractères écrits
+* Return: On success 1, -1 on error
 */
 int _putchar(char c)
 {
 return write(1, &c, 1);
 }
+
