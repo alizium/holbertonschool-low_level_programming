@@ -4,7 +4,7 @@
 * _putchar - écrit un caractère sur la sortie standard
 * @c: le caractère à écrire
 *
-* Return: 1 sur succès, -1 sur erreur
+* Return: le nombre de caractères écrits
 */
 int _putchar(char c)
 {
