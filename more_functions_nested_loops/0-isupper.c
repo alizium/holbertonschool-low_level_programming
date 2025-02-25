@@ -1,9 +1,14 @@
 #include "main.h"
+
 /**
- * reset_to_98 - Updates the value of an integer to 98
- * @n: Pointer to the integer to update
- */
-void reset_to_98(int *n)
+* _isupper - Checks if a character is uppercase
+* @c: The character to check
+*
+* Return: 1 if c is uppercase, 0 otherwise
+*/
+int _isupper(int c)
 {
-*n = 98;
+if (c >= 'A' && c <= 'Z')
+return (1);
+return (0);
 }
