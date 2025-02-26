@@ -1,45 +1,37 @@
 #include "main.h"
-#include <limits.h> /* Pour INT_MIN et INT_MAX */
 
 /**
-* _atoi - Converts a string to an integer.
-* @s: The string to be converted.
+* _atoi - convert a string to an integer.
+* @s: the string to convert
 *
-* Return: The integer value of the converted string.
+* Return: the integer value of the string
 */
 int _atoi(char *s)
 {
-int i = 0;
-int sign = 1;
-unsigned int result = 0;
-int found_number = 0;
+int i = 0, sign = 1, num = 0;
 
-/* Parcourir la chaîne */
+/* Ignore non-numeric characters until we reach a number */
 while (s[i] != '\0')
 {
-/* Gérer les signes '+' et '-' */
+/* Check for the + or - sign to determine the sign of the number */
 if (s[i] == '-')
-sign *= -1;
+sign *= -1;  /* Change the sign if negative */
+else if (s[i] == '+')
+sign *= 1;   /* Keep the sign positive */
+
+/* If we reach a digit, start building the number */
 else if (s[i] >= '0' && s[i] <= '9')
 {
-result = result * 10 + (s[i] - '0');
-found_number = 1;
-
-/* Vérifier si le résultat dépasse la plage d'un int */
-if (result > (unsigned int)INT_MAX + 1 && sign == -1)
-return (INT_MIN);
-else if (result > (unsigned int)INT_MAX && sign == 1)
-return (INT_MAX);
+num = num * 10 + (s[i] - '0');  /* Build the number digit by digit */
 }
-else if (found_number) /* Arrêter dès qu'on a trouvé un nombre */
+
+/* Break out of the loop once we finish processing the digits */
+else if (num > 0)
 break;
 
 i++;
 }
 
-/* Retourner INT_MIN si nécessaire */
-if (result == (unsigned int)INT_MAX + 1 && sign == -1)
-return (INT_MIN);
-
-return ((int)result * sign);
+/* Return the number with the correct sign */
+return num * sign;
 }
