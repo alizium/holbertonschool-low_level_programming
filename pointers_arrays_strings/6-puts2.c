@@ -6,12 +6,12 @@
 */
 void puts2(char *str)
 {
-int i = 0;
+int i;
 
-while (str[i] != '\0') /* Parcourir la chaîne */
+for (i = 0; str[i] != '\0'; i++) /* On parcourt la chaîne */
 {
-_putchar(str[i]); /* Afficher le caractère à l'index pair */
-i += 2; /* Passer au caractère suivant en sautant un */
+if (i % 2 == 0) /* Vérifier si l'index est pair */
+_putchar(str[i]); /* Afficher le caractère */
 }
 _putchar('\n'); /* Nouvelle ligne */
 }
