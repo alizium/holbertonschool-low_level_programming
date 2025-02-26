@@ -9,13 +9,16 @@ void puts_half(char *str)
 {
 int length = 0, i, start;
 
-while (str[length] != '\0')  /* Calcul de la longueur de la chaîne */
+/* Calcul de la longueur de la chaîne */
+while (str[length] != '\0')
 length++;
 
-start = (length + 1) / 2;  /* Déterminer le point de départ pour l'impression */
+/* Déterminer le point de départ pour l'impression */
+start = (length + 1) / 2;
 
+/* Affichage de la seconde moitié du string */
 for (i = start; i < length; i++)
-_putchar(str[i]);  /* Afficher chaque caractère de la seconde moitié */
+_putchar(str[i]);
 
-_putchar('\n');  /* Nouvelle ligne */
+_putchar('\n');
 }
