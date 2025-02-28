@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
-* _strncat - Concatène deux chaînes de caractères en limitant à n caractères
-* @dest: Chaîne de destination
-* @src: Chaîne source
-* @n: Nombre maximum de caractères à ajouter de src
-*
-* Return: Pointeur vers dest
-*/
+ * _strncat - Concatène deux chaînes avec une limite de n caractères
+ * @dest: Chaîne de destination
+ * @src: Chaîne source
+ * @n: Nombre max de caractères à ajouter de src
+ *
+ * Return: Pointeur vers dest
+ */
+
 char *_strncat(char *dest, char *src, int n)
 {
 int i = 0, j = 0;
