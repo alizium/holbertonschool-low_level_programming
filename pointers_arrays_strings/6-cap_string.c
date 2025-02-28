@@ -24,19 +24,18 @@ if (s[i] == separators[j])
 {
 capitalize = 1; /* Marquer la prochaine lettre comme majuscule */
 break;
-
 }
 }
 
 /* Si c'est une lettre minuscule et que capitalize est activé */
 if (capitalize && (s[i] >= 'a' && s[i] <= 'z'))
 {
-s[i] -= ('a' - 'A'); /* Convertir en majuscule */
+            s[i] -= ('a' - 'A'); /* Convertir en majuscule */
 capitalize = 0; /* Désactiver la capitalisation */
 }
-else if (s[i] >= 'A' && s[i] <= 'Z')
+else if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
 {
-capitalize = 0; /* Désactiver la capitalisation pour les majuscules */
+capitalize = 0; /* Désactiver la capitalisation pour majuscules et chiffres */
 }
 
 i++;
