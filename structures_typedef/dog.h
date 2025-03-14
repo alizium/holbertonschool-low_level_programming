@@ -17,4 +17,7 @@ typedef struct dog
 /* Prototype d'une fonction pour afficher un chien */
 void print_dog(struct dog *d);
 
+/* Prototype de la fonction init_dog */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
 #endif /* DOG_H */
