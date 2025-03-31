@@ -1,57 +1,75 @@
 #include "lists.h"
 
 /**
- * add_node_end - Adds a new node at the end of a list_t list
- * @head: Pointer to the pointer of the first node
- * @str: String to be duplicated and added to the new node
- *
- * Return: Address of the new element, or NULL if it fails
- */
+* create_node - Creates a new node with a duplicated string
+* @str: The string to duplicate
+*
+* Return: Pointer to the new node, or NULL if it fails
+*/
+list_t *create_node(const char *str)
+{
+	list_t *new_node;
+	char *new_str;
+
+	unsigned int len = 0;
+
+	if (str == NULL)
+		return (NULL);
+
+	/* Duplicate the string */
+	new_str = strdup(str);
+	if (new_str == NULL)
+		return (NULL);
+
+	/* Compute string length */
+	while (str[len])
+		len++;
+
+	/* Allocate memory for new node */
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
+	{
+		free(new_str);
+		return (NULL);
+	}
+
+	/* Initialize new node */
+	new_node->str = new_str;
+	new_node->len = len;
+	new_node->next = NULL;
+
+	return (new_node);
+}
+
+/**
+* add_node_end - Adds a new node at the end of a list_t list
+* @head: Pointer to the pointer of the first node
+* @str: String to be duplicated and added to the new node
+*
+* Return: Address of the new element, or NULL if it fails
+*/
 list_t *add_node_end(list_t **head, const char *str)
 {
-    list_t *new_node, *temp;
-    char *new_str;
-    unsigned int len = 0;
+	list_t *new_node, *temp;
 
-    if (str == NULL)
-        return (NULL);
+	new_node = create_node(str);
+	if (new_node == NULL)
+		return (NULL);
 
-    /* Duplicate the string */
-    new_str = strdup(str);
-    if (new_str == NULL)
-        return (NULL);
+	/* If list is empty, new node becomes head */
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return (new_node);
+	}
 
-    /* Compute string length */
-    while (str[len])
-        len++;
+	/* Traverse to the last node */
+	temp = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
 
-    /* Allocate memory for new node */
-    new_node = malloc(sizeof(list_t));
-    if (new_node == NULL)
-    {
-        free(new_str);
-        return (NULL);
-    }
+	/* Append new node at the end */
+	temp->next = new_node;
 
-    /* Initialize new node */
-    new_node->str = new_str;
-    new_node->len = len;
-    new_node->next = NULL;
-
-    /* If list is empty, new node becomes head */
-    if (*head == NULL)
-    {
-        *head = new_node;
-        return (new_node);
-    }
-
-    /* Traverse to the last node */
-    temp = *head;
-    while (temp->next != NULL)
-        temp = temp->next;
-
-    /* Append new node at the end */
-    temp->next = new_node;
-
-    return (new_node);
+	return (new_node);
 }
