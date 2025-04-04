@@ -1,13 +1,7 @@
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 #include "lists.h"
 
-/**
-* main - check the code
-*
-* Return: Always EXIT_SUCCESS.
-*/
 int main(void)
 {
 	dlistint_t *head;
@@ -23,6 +17,7 @@ int main(void)
 	add_dnodeint_end(&head, 1024);
 	print_dlistint(head);
 	print_dlistint(head);
+	free_dlistint(head); /* <-- AJOUT ICI */
 	head = NULL;
 	return (EXIT_SUCCESS);
 }
