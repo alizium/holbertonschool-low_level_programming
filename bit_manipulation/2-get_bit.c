@@ -1,22 +1,18 @@
-#include <stdio.h>
 #include "main.h"
-#include <math.h>
-/**
-* get_bit - Write a function that returns the value of a bit at a
-* given index.
-* Prototype: int get_bit(unsigned long int n, unsigned int index);
 
-* @index: is the index, starting from 0 of the bit you want to get
-* @n: bit value in the index.
-* Return: the value of the bit at index index or -1 if an error occured
+/**
+* get_bit - Returns the value of a bit at a given index.
+* @n: The number to search for the bit.
+* @index: The index of the bit to get.
+*
+* Return: The value of the bit at index, or -1 if an error occurred.
 */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index > 63)
-		return (-1);
-	if (index == 0)
-	{
-		return (n & 1);
-	}
-	return (get_bit(n >> 1, index - 1));
+	/* Check if the index is out of range for an unsigned long int */
+	if (index >= sizeof(unsigned long int) * 8)
+
+		return (-1);  /* Return -1 if the index is out of range */
+
+	return ((n >> index) & 1);  /* Right shift and apply bitwise AND with 1 */
 }
